@@ -1,5 +1,5 @@
 local DrivingSchools = {
-    
+    coords = vector3(215.41, -1399.06, 30.58)   
 }
 
 RegisterServerEvent('qb-cityhall:server:requestId')
@@ -94,25 +94,24 @@ AddEventHandler('qb-cityhall:server:ApplyJob', function(job)
 end)
 
 
--- QBCore.Commands.Add("drivinglicense", "Give a driver's license to someone", {{"id", "ID of a person"}}, true, function(source, args)
---     local Player = QBCore.Functions.GetPlayer(source)
+QBCore.Commands.Add("drivinglicense", "Give a driver's license to someone", {{"id", "ID of a person"}}, true, function(source, args)
+    local Player = QBCore.Functions.GetPlayer(source)
 
---         local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
---         if SearchedPlayer ~= nil then
---             local driverLicense = SearchedPlayer.PlayerData.metadata["licences"]["driver"]
---             if not driverLicense then
---                 local licenses = {
---                     ["driver"] = true,
---                     ["business"] = SearchedPlayer.PlayerData.metadata["licences"]["business"]
---                 }
---                 SearchedPlayer.Functions.SetMetaData("licences", licenses)
---                 TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You have passed! Pick up your driver's license at the town hall", "success", 5000)
---             else
---                 TriggerClientEvent('QBCore:Notify', src, "Can't give driver's license ..", "error")
---             end
---         end
-
--- end)
+        local SearchedPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+        if SearchedPlayer ~= nil then
+            local driverLicense = SearchedPlayer.PlayerData.metadata["licences"]["driver"]
+            if not driverLicense then
+                local licenses = {
+                    ["driver"] = true,
+                    ["business"] = SearchedPlayer.PlayerData.metadata["licences"]["business"]
+                }
+                SearchedPlayer.Functions.SetMetaData("licences", licenses)
+                TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You have passed! Pick up your driver's license at the town hall", "success", 5000)
+            else
+                TriggerClientEvent('QBCore:Notify', src, "Can't give driver's license ..", "error")
+            end
+        end
+end)
 
 function GiveStarterItems(source)
     local src = source
