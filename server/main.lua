@@ -61,6 +61,9 @@ local AvailableJobs = {
     "reporter",
     "garbage",
     "bus",
+    "mechanic",
+    "burgershot",
+    "ambulance",
 }
 
 function IsAvailableJob(job)
