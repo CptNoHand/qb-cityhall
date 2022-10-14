@@ -1,5 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local availableJobs = {
+    ["unemployed"] = "Arbeitslos",
     ["trucker"] = "Trucker",
     ["taxi"] = "Taxi",
     ["tow"] = "Tow Truck",
@@ -61,6 +62,10 @@ RegisterNetEvent('qb-cityhall:server:requestId', function(item, hall)
         info.birthdate = Player.PlayerData.charinfo.birthdate
         info.type = "Class C Driver License"
     elseif item == "weaponlicense" then
+        info.firstname = Player.PlayerData.charinfo.firstname
+        info.lastname = Player.PlayerData.charinfo.lastname
+        info.birthdate = Player.PlayerData.charinfo.birthdate
+    elseif item == "permit" then
         info.firstname = Player.PlayerData.charinfo.firstname
         info.lastname = Player.PlayerData.charinfo.lastname
         info.birthdate = Player.PlayerData.charinfo.birthdate
